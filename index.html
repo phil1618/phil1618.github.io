@@ -10,6 +10,8 @@
     <p>Browser Language: <span id="language"></span></p>
     <p>Screen Resolution: <span id="resolution"></span></p>
     <p>Cookies Enabled: <span id="cookies-enabled"></span></p>
+    <p>URL Parameters: <span id="url-parameters"></span></p>
+    <p>Firmware Version: <span id="firmware-version"></span></p>
     
     <script>
       document.getElementById("url").textContent = window.location.href;
@@ -17,6 +19,18 @@
       document.getElementById("language").textContent = window.navigator.language;
       document.getElementById("resolution").textContent = window.screen.width + "x" + window.screen.height;
       document.getElementById("cookies-enabled").textContent = navigator.cookieEnabled ? "Yes" : "No";
+      
+      // Get URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      let paramsStr = '';
+      for (const [key, value] of urlParams) {
+        paramsStr += `${key}: ${value}<br>`;
+      }
+      document.getElementById("url-parameters").innerHTML = paramsStr;
+      
+      // Get firmware version
+      const firmwareVersion = window.navigator.userAgent.match(/Firmware\/([0-9\.]+)/);
+      document.getElementById("firmware-version").textContent = firmwareVersion ? firmwareVersion[1] : "N/A";
     </script>
   </body>
 </html>

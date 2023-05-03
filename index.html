@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Browser Information</title>
+  </head>
+  <body>
+    <h1>Browser Information</h1>
+    <p>Current URL: <span id="url"></span></p>
+    <p>User Agent: <span id="user-agent"></span></p>
+    <p>Browser Language: <span id="language"></span></p>
+    <p>Screen Resolution: <span id="resolution"></span></p>
+    <p>Cookies Enabled: <span id="cookies-enabled"></span></p>
+    
+    <script>
+      document.getElementById("url").textContent = window.location.href;
+      document.getElementById("user-agent").textContent = window.navigator.userAgent;
+      document.getElementById("language").textContent = window.navigator.language;
+      document.getElementById("resolution").textContent = window.screen.width + "x" + window.screen.height;
+      document.getElementById("cookies-enabled").textContent = navigator.cookieEnabled ? "Yes" : "No";
+    </script>
+  </body>
+</html>

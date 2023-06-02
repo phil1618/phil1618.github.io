@@ -5,7 +5,7 @@
 </head>
 <body>
   <h1>Form Example</h1>
-  
+  <p>Current URL: <span id="url"></span></p>
   <form>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required><br><br>
@@ -32,5 +32,8 @@
     
     <input type="submit" value="Submit">
   </form>
+  <script>
+    document.getElementById("url").textContent = window.location.href
+  </script>
 </body>
 </html>

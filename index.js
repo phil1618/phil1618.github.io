@@ -29,14 +29,14 @@ KioskBoard.init({
   * An Array of Objects has to be defined for the custom keys. Hint: Each object creates a row element (HTML) on the keyboard.
   * e.g. [{"key":"value"}, {"key":"value"}] => [{"0":"A","1":"B","2":"C"}, {"0":"D","1":"E","2":"F"}]
   */
-  keysArrayOfObjects: [],
+  keysArrayOfObjects: [{"0":"A","1":"B","2":"C"}, {"0":"D","1":"E","2":"F"}],
 
   /*!
   * Required only if "keysArrayOfObjects" is "null".
   * The path of the "kioskboard-keys-${langugage}.json" file must be set to the "keysJsonUrl" option. (XMLHttpRequest to get the keys from JSON file.)
   * e.g. '/Content/Plugins/KioskBoard/dist/kioskboard-keys-english.json'
   */
-  keysJsonUrl: 'kioskboard-keys-english.json',
+  //keysJsonUrl: 'kioskboard-keys-english.json',
 
   /*
   * Optional: An Array of Strings can be set to override the built-in special characters.

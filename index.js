@@ -1,7 +1,9 @@
-import Keyboard from 'simple-keyboard';
-import 'simple-keyboard/build/css/index.css';
+const Keyboard = window.SimpleKeyboard.default;
 
-document.getElementById("url").textContent = window.location.href
+const myKeyboard = new Keyboard({
+  onChange: input => onChange(input),
+  onKeyPress: button => onKeyPress(button)
+});
 
 const keyboard = new Keyboard({
   onChange: input => onChange(input),

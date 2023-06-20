@@ -36,7 +36,7 @@ KioskBoard.init({
   * The path of the "kioskboard-keys-${langugage}.json" file must be set to the "keysJsonUrl" option. (XMLHttpRequest to get the keys from JSON file.)
   * e.g. '/Content/Plugins/KioskBoard/dist/kioskboard-keys-english.json'
   */
-  //keysJsonUrl: null,
+  keysJsonUrl: 'kioskboard-keys-english.json',
 
   /*
   * Optional: An Array of Strings can be set to override the built-in special characters.

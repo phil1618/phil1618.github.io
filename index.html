@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Form Example</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css"> -->
 </head>
 <body>
   <h1>Form Example</h1>
@@ -13,16 +13,16 @@
   
   <form>
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br><br>
+    <input class="js-kioskboard-input" type="text" id="name" name="name" required><br><br>
     
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
+    <input class="js-kioskboard-input" type="email" id="email" name="email" required><br><br>
     
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
+    <input class="js-kioskboard-input" type="password" id="password" name="password" required><br><br>
     
     <label for="age">Age:</label>
-    <input type="number" id="age" name="age" min="18" required><br><br>
+    <input class="js-kioskboard-input" type="number" id="age" name="age" min="18" required><br><br>
     
     <label for="gender">Gender:</label>
     <select id="gender" name="gender" required>
@@ -33,12 +33,12 @@
     </select><br><br>
     
     <label for="country">Country:</label>
-    <input type="text" id="country" name="country" required><br><br>
+    <input class="js-kioskboard-input" type="text" id="country" name="country" required><br><br>
     
     <input type="submit" value="Submit">
-    <div class="simple-keyboard"></div>
   </form>
-   <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.js"></script>
+   <!-- <script src="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/index.js"></script> -->
+  <script src="dist/kioskboard-aio-2.3.0.min.js"></script>
   <script src="./index.js"></script>
 </body>
 </html>

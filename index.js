@@ -36,19 +36,19 @@ KioskBoard.init({
   * The path of the "kioskboard-keys-${langugage}.json" file must be set to the "keysJsonUrl" option. (XMLHttpRequest to get the keys from JSON file.)
   * e.g. '/Content/Plugins/KioskBoard/dist/kioskboard-keys-english.json'
   */
-  keysJsonUrl: null,
+  //keysJsonUrl: null,
 
   /*
   * Optional: An Array of Strings can be set to override the built-in special characters.
   * e.g. ["#", "€", "%", "+", "-", "*"]
   */
-  keysSpecialCharsArrayOfStrings: null,
+  //keysSpecialCharsArrayOfStrings: null,
 
   /*
   * Optional: An Array of Numbers can be set to override the built-in numpad keys. (From 0 to 9, in any order.)
   * e.g. [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
   */
-  keysNumpadArrayOfNumbers: null,
+  //keysNumpadArrayOfNumbers: null,
 
   // Optional: (Other Options)
 

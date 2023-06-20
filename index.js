@@ -29,7 +29,7 @@ KioskBoard.init({
   * An Array of Objects has to be defined for the custom keys. Hint: Each object creates a row element (HTML) on the keyboard.
   * e.g. [{"key":"value"}, {"key":"value"}] => [{"0":"A","1":"B","2":"C"}, {"0":"D","1":"E","2":"F"}]
   */
-  keysArrayOfObjects: null,
+  keysArrayOfObjects: [],
 
   /*!
   * Required only if "keysArrayOfObjects" is "null".

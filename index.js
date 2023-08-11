@@ -1,17 +1,9 @@
-function injectHeadJS() {
-  var iFrameHead = document.getElementById("iframe-1").contentWindow.document.getElementsByTagName("head")[0];
-  var kbScript = document.createElement("script");
-  kbScript.type = "text/javascript";
-  kbScript.src = "dist/kioskboard-aio-2.3.0.min.js";
-  iFrameHead.appendChild(kbScript);
+window.onload = function() {
+    // Display the current URL in the <p> element with id "urlDisplay"
+    var urlDisplayElement = document.getElementById('urlDisplay');
+    urlDisplayElement.textContent = window.location.href;
 
-  injectBodyJS()
-}
-
-function injectBodyJS() {
-  var iFrameHead = document.getElementById("iframe-1").contentWindow.document.getElementsByTagName("body")[0];
-  var kbScript = document.createElement("script");
-  kbScript.type = "text/javascript";
-  kbScript.src = "iframe-kb-setup.js";
-  iFrameHead.appendChild(kbScript);
-}
+    // Your additional JavaScript code can go here
+    // For example:
+    // alert("Hello from the external script!");
+};

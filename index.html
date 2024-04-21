@@ -39,7 +39,6 @@
                         cache.keys().then(function (requests) {
                             let totalSize = 0;
                             requests.forEach(function (request) {
-                                console.log(request.url, request.headers.get('Content-Length'));
                                 totalSize += request.headers.get('Content-Length') || 0;
                             });
                             document.getElementById('cache-size-value').textContent = totalSize + ' bytes';

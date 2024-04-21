@@ -51,6 +51,8 @@ async function handleRangeRequests(request) {
 
     // Cache the requested byte range
     const contentRange = `bytes ${start}-${end}/${response.headers.get('content-length')}`;
+
+    console.log(request.url, contentRange);
     const slicedResponse = new Response(response.body, {
         status: 206,
         statusText: 'Partial Content',

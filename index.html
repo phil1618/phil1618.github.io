@@ -142,6 +142,7 @@
                 });
 
                 mediaSource.addEventListener('error', (err) => {
+                    console.error('MediaSource error:', err);
                     reject(err);
                 });
             });

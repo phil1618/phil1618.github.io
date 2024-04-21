@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>URL and JS Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cache Test</title>
 </head>
-<body style="background-color: darkcyan;">
-    <iframe src="https://bspokeit.github.io"
-        style="width: 100%; height: 1500px; border: none;"></iframe>
+
+<body>
+    <h1>Cache Test</h1>
+    <p id="service-worker-status">Checking service worker availability...</p>
+    <p id="cache-status">Checking HTML video caching...</p>
+    <p id="cache-size">Cache size: <span id="cache-size-value"></span></p>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(function (registration) {
+                    document.getElementById('service-worker-status').textContent = 'Service worker is available';
+                })
+                .catch(function (error) {
+                    document.getElementById('service-worker-status').textContent = 'Service worker registration failed: ' + error;
+                });
+        } else {
+            document.getElementById('service-worker-status').textContent = 'Service worker is not supported';
+        }
+
+        if ('caches' in window) {
+            caches.has('video-cache').then(function (hasCache) {
+                if (hasCache) {
+                    document.getElementById('cache-status').textContent = 'HTML video caching is available';
+                    caches.open('video-cache').then(function (cache) {
+                        cache.keys().then(function (requests) {
+                            let totalSize = 0;
+                            requests.forEach(function (request) {
+                                totalSize += request.headers.get('content-length') || 0;
+                            });
+                            document.getElementById('cache-size-value').textContent = totalSize + ' bytes';
+                        });
+                    });
+                } else {
+                    document.getElementById('cache-status').textContent = 'HTML video caching is not available';
+                }
+            });
+        } else {
+            document.getElementById('cache-status').textContent = 'Caching is not supported';
+        }
+    </script>
+    <script>
+        // Service worker script
+        const cacheName = 'video-cache';
+
+        self.addEventListener('install', event => {
+            event.waitUntil(
+                caches.open(cacheName)
+                    .then(cache => {
+                        return cache.addAll([
+                            'video.mp4' // Change this to your video file's path
+                        ]);
+                    })
+            );
+        });
+
+        self.addEventListener('fetch', event => {
+            event.respondWith(
+                caches.match(event.request)
+                    .then(response => {
+                        if (response) {
+                            return response;
+                        }
+                        return fetch(event.request);
+                    })
+            );
+        });
+    </script>
 </body>
+
 </html>

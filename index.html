@@ -54,49 +54,39 @@
         async function fetchVideoByChunk() {
             const videoElement = document.getElementById('chunked-video');
             const chunkSize = 1024 * 1024; // 1 MB chunk size
-
-            const response = await fetch('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'); // Replace 'video.mp4' with your video file URL
-            const reader = response.body.getReader();
-
             let offset = 0;
-            let chunks = [];
 
             while (true) {
-                const { done, value } = await reader.read();
+                const range = `bytes=${offset}-${offset + chunkSize - 1}`;
+                const chunkRequest = new Request('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', {
+                    method: 'GET',
+                    headers: {
+                        Range: range
+                    }
+                });
 
-                if (done) {
-                    break;
+                // Fetch the chunk using the service worker URL
+                const response = await fetch(chunkRequest);
+
+                // Check if the response is successful
+                if (!response.ok) {
+                    // Handle error
+                    console.error('Error fetching video chunk:', response.statusText);
+                    return;
                 }
 
-                chunks.push(value);
+                const blob = await response.blob();
 
-                if (chunks.reduce((acc, chunk) => acc + chunk.byteLength, 0) >= chunkSize) {
-                    const concatenatedChunks = new Uint8Array(chunks.reduce((acc, chunk) => acc + chunk.byteLength, 0));
-                    let offsetConcatenated = 0;
-                    for (const chunk of chunks) {
-                        concatenatedChunks.set(new Uint8Array(chunk), offsetConcatenated);
-                        offsetConcatenated += chunk.byteLength;
-                    }
+                // Create blob URL and set it to the video element
+                const blobUrl = URL.createObjectURL(blob);
+                videoElement.src = blobUrl;
 
-                    // Add the Range header to the fetch request
-                    const range = `bytes=${offset}-${offset + concatenatedChunks.byteLength - 1}`;
-                    const chunkRequest = new Request('service-worker-url', {
-                        method: 'GET',
-                        headers: {
-                            Range: range
-                        }
-                    });
+                // Increase offset for the next chunk
+                offset += chunkSize;
 
-                    // Fetch the chunk using the service worker URL
-                    const chunkResponse = await fetch(chunkRequest);
-                    const blob = await chunkResponse.blob();
-
-                    // Create blob URL and set it to the video element
-                    const blobUrl = URL.createObjectURL(blob);
-                    videoElement.src = blobUrl;
-
-                    chunks = [];
-                    offset += concatenatedChunks.byteLength;
+                // Break the loop if the entire video has been fetched
+                if (offset >= response.headers.get('Content-Length')) {
+                    break;
                 }
             }
         }

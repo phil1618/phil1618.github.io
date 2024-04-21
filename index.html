@@ -58,6 +58,7 @@
 
             while (true) {
                 const range = `bytes=${offset}-${offset + chunkSize - 1}`;
+                console.log('Fetching video chunk:', range);
                 const chunkRequest = new Request('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', {
                     method: 'GET',
                     headers: {

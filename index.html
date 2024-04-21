@@ -126,7 +126,7 @@
                             await cache.put(cacheKey, clonedResponse);
 
                             // Append the chunk to the media source
-                            const arrayBuffer = await response.arrayBuffer();
+                            const arrayBuffer = await clonedResponse.arrayBuffer();
                             try {
                                 sourceBuffer.appendBuffer(arrayBuffer);
                                 console.log('Appended chunk:', cacheKey);

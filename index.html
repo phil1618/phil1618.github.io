@@ -12,7 +12,7 @@
     <p id="service-worker-status">Checking service worker availability...</p>
     <p id="cache-status">Checking HTML video caching...</p>
     <p id="cache-size">Cache size: <span id="cache-size-value"></span></p>
-    <video id="chunked-video" controls></video>
+    <video id="video-element" controls></video>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')

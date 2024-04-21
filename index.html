@@ -12,12 +12,7 @@
     <p id="service-worker-status">Checking service worker availability...</p>
     <p id="cache-status">Checking HTML video caching...</p>
     <p id="cache-size">Cache size: <span id="cache-size-value"></span></p>
-
-    <video id="cached-video" controls autoplay>
-        <!-- Provide a fallback source in case the video cannot be loaded from cache -->
-        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4"> Your browser does not support the video tag.
-    </video>
-
+    <video id="chunked-video" controls autoplay="true"></video>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
@@ -32,25 +27,68 @@
         }
 
         if ('caches' in window) {
-            caches.has('video-cache').then(function (hasCache) {
-                if (hasCache) {
-                    document.getElementById('cache-status').textContent = 'HTML video caching is available';
-                    caches.open('video-cache').then(function (cache) {
-                        cache.keys().then(function (requests) {
-                            let totalSize = 0;
-                            requests.forEach(function (request) {
-                                totalSize += request.headers.get('Content-Length') || 0;
+            setInterval(() => {
+                caches.has('video-cache').then(function (hasCache) {
+                    if (hasCache) {
+                        document.getElementById('cache-status').textContent = 'HTML video caching is available';
+                        caches.open('video-cache').then(function (cache) {
+                            cache.keys().then(function (requests) {
+                                let totalSize = 0;
+                                requests.forEach(function (request) {
+                                    totalSize += request.headers.get('Content-Length') || 0;
+                                });
+                                document.getElementById('cache-size-value').textContent = totalSize + ' bytes';
                             });
-                            document.getElementById('cache-size-value').textContent = totalSize + ' bytes';
                         });
-                    });
-                } else {
-                    document.getElementById('cache-status').textContent = 'HTML video caching is not available';
-                }
-            });
+                    } else {
+                        document.getElementById('cache-status').textContent = 'HTML video caching is not available';
+                    }
+                });
+            }, 2000);
+
         } else {
             document.getElementById('cache-status').textContent = 'Caching is not supported';
         }
+
+        // Function to fetch video data by chunk and set it to the video element
+        async function fetchVideoByChunk() {
+            const videoElement = document.getElementById('chunked-video');
+            const chunkSize = 1024 * 1024; // 1 MB chunk size
+
+            const response = await fetch('video.mp4'); // Replace 'video.mp4' with your video file URL
+            const reader = response.body.getReader();
+
+            let offset = 0;
+            let chunks = [];
+
+            while (true) {
+                const { done, value } = await reader.read();
+
+                if (done) {
+                    break;
+                }
+
+                chunks.push(value);
+
+                if (chunks.reduce((acc, chunk) => acc + chunk.byteLength, 0) >= chunkSize) {
+                    const concatenatedChunks = new Uint8Array(chunks.reduce((acc, chunk) => acc + chunk.byteLength, 0));
+                    let offsetConcatenated = 0;
+                    for (const chunk of chunks) {
+                        concatenatedChunks.set(new Uint8Array(chunk), offsetConcatenated);
+                        offsetConcatenated += chunk.byteLength;
+                    }
+
+                    const blob = new Blob([concatenatedChunks]);
+                    const blobUrl = URL.createObjectURL(blob);
+                    videoElement.src = blobUrl;
+
+                    chunks = [];
+                }
+            }
+        }
+
+        // Call the function to start fetching video by chunk
+        fetchVideoByChunk();
     </script>
 </body>
 

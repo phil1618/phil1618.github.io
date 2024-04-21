@@ -5,7 +5,7 @@ self.addEventListener('install', event => {
         caches.open(cacheName)
             .then(cache => {
                 return cache.addAll([
-                    'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' // Change this to your video file's path
+                    'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' // Change this to your video file's path
                 ]);
             })
     );

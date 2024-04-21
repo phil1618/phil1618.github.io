@@ -51,44 +51,51 @@
             document.getElementById('cache-status').textContent = 'Caching is not supported';
         }
 
-        // Function to fetch video data by chunk and set it to the video element
-        async function fetchVideoByChunk() {
+       async function fetchVideoByChunk() {
             const videoElement = document.getElementById('chunked-video');
             const chunkSize = 1024 * 1024; // 1 MB chunk size
+            const mediaSource = new MediaSource();
 
-            const response = await fetch('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'); // Replace 'video.mp4' with your video file URL
-            const reader = response.body.getReader();
+            videoElement.src = URL.createObjectURL(mediaSource);
 
-            let offset = 0;
-            let chunks = [];
+            mediaSource.addEventListener('sourceopen', async () => {
+                const sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.64001f"'); // Change codec as per your video
 
-            while (true) {
-                const { done, value } = await reader.read();
+                const response = await fetch('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'); // Replace 'video.mp4' with your video file URL
+                const reader = response.body.getReader();
 
-                if (done) {
-                    break;
-                }
+                let offset = 0;
+                let chunks = [];
+                let timestamp = 0;
 
-                chunks.push(value);
+                while (true) {
+                    const { done, value } = await reader.read();
 
-                if (chunks.reduce((acc, chunk) => acc + chunk.byteLength, 0) >= chunkSize) {
-                    const concatenatedChunks = new Uint8Array(chunks.reduce((acc, chunk) => acc + chunk.byteLength, 0));
-                    let offsetConcatenated = 0;
-                    for (const chunk of chunks) {
-                        concatenatedChunks.set(new Uint8Array(chunk), offsetConcatenated);
-                        offsetConcatenated += chunk.byteLength;
+                    if (done) {
+                        break;
                     }
 
-                    const blob = new Blob([concatenatedChunks]);
-                    const blobUrl = URL.createObjectURL(blob);
-                    videoElement.src = blobUrl;
+                    chunks.push(value);
 
-                    chunks = [];
+                    if (chunks.reduce((acc, chunk) => acc + chunk.byteLength, 0) >= chunkSize) {
+                        const concatenatedChunks = new Uint8Array(chunks.reduce((acc, chunk) => acc + chunk.byteLength, 0));
+                        let offsetConcatenated = 0;
+                        for (const chunk of chunks) {
+                            concatenatedChunks.set(new Uint8Array(chunk), offsetConcatenated);
+                            offsetConcatenated += chunk.byteLength;
+                        }
+
+                        sourceBuffer.appendBuffer(concatenatedChunks);
+                        timestamp += 1; // Increment timestamp for each chunk
+
+                        chunks = [];
+                    }
                 }
-            }
+
+                mediaSource.endOfStream();
+            });
         }
 
-        // Call the function to start fetching video by chunk
         fetchVideoByChunk();
     </script>
 </body>

@@ -24,6 +24,7 @@ self.addEventListener('fetch', event => {
 async function handleRangeRequests(request) {
     console.log(`Handling range request for: ${request.url}`);
     const rangeHeader = request.headers.get('range');
+    console.log(`Range header: ${rangeHeader}`);
     if (!rangeHeader) {
         // If no range header is present, fetch the entire video
         return fetch(request);

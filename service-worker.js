@@ -1,6 +1,7 @@
 const cacheName = 'video-cache';
 
 self.addEventListener('fetch', event => {
+    console.log('fetch', event.request.url, event);
     event.respondWith(
         caches.match(event.request)
             .then(response => {

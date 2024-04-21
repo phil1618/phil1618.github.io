@@ -55,7 +55,7 @@
             const videoElement = document.getElementById('chunked-video');
             const chunkSize = 1024 * 1024; // 1 MB chunk size
 
-            const response = await fetch('video.mp4'); // Replace 'video.mp4' with your video file URL
+            const response = await fetch('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'); // Replace 'video.mp4' with your video file URL
             const reader = response.body.getReader();
 
             let offset = 0;

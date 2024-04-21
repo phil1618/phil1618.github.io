@@ -12,9 +12,10 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
     const requestUrl = new URL(event.request.url);
-
+    console.log(requestUrl);
     // Check if the request is for an HTML video tag and the file type is MP4
     if (requestUrl.pathname.endsWith('.mp4') && event.request.headers.get('range')) {
+        console.log(event.request.headers.get('range'));
         event.respondWith(handleRangeRequests(event.request));
     }
 });

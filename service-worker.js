@@ -51,6 +51,7 @@ async function handleRangeRequests(request) {
         const chunkSizeToFetch = Math.min(chunkSize, bytesRemaining);
         const end = offset + chunkSizeToFetch - 1;
         const range = `bytes=${offset}-${end}`;
+        console.log(`Fetching range: ${range}`);
         const chunkRequest = new Request(request.url, {
             method: 'GET',
             headers: {
@@ -84,6 +85,7 @@ async function handleRangeRequests(request) {
     });
 
     // Cache the response
+    console.log('Caching response');
     await cache.put(request, slicedResponse);
 
     // Return the sliced response to the client

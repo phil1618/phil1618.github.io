@@ -33,11 +33,6 @@ var CURRENT_CACHES = {
 
 self.addEventListener('install', function(event) {
   var urlsToPrefetch = [
-    './',
-    'index.js',
-    '../../styles/main.css',
-    'static/poster.jpg',
-    // The videos are stored remotely with CORS enabled.
     'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
   ];
 

@@ -77,12 +77,14 @@
             //videoElement.src = URL.createObjectURL(mediaSource);
 
             
-            const registration = await navigator.serviceWorker.register('/service-worker.js');
+            //const registration = await navigator.serviceWorker.register('/service-worker.js');
             const cache = await caches.open(cacheName);
             console.log('Cache opened');
             mediaSource.addEventListener('sourceopen', async () => {
                 console.log('Media source opened');
+                videoElement.play();
                 const sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.64001f"'); // Adjust codecs as per your video
+                
                 while (offset < fileSize) {
                     const rangeEnd = Math.min(offset + chunkSizeBytes - 1, fileSize - 1);
                     const range = `bytes=${offset}-${rangeEnd}`;

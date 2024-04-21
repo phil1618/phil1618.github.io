@@ -35,7 +35,7 @@
                             cache.keys().then(function (requests) {
                                 let totalSize = 0;
                                 requests.forEach(function (request) {
-                                    console.log(request.url, request.headers.get('Content-Length') || 0)
+                                    console.log(request.url, request.headers.get('Content-Length') || 0);
                                     totalSize += request.headers.get('Content-Length') || 0;
                                 });
                                 document.getElementById('cache-size-value').textContent = totalSize + ' bytes';
@@ -51,51 +51,60 @@
             document.getElementById('cache-status').textContent = 'Caching is not supported';
         }
 
+
+        // Function to fetch video data by chunk and set it to the video element
         async function fetchVideoByChunk() {
             const videoElement = document.getElementById('chunked-video');
             const chunkSize = 1024 * 1024; // 1 MB chunk size
-            let offset = 0;
-            let counter = 0;
 
-            while (true) {
-                const range = `bytes=${offset}-${offset + chunkSize - 1}`;
+            // Fetch the headers of the video file to get the file size
+            const headResponse = await fetch('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', { method: 'HEAD' });
+
+            // Get the content length from the headers
+            const contentLength = headResponse.headers.get('Content-Length');
+
+            if (!contentLength) {
+                console.error('Content-Length header not found in response');
+                return;
+            }
+
+            const fileSize = parseInt(contentLength, 10);
+            let offset = 0;
+
+            while (offset < fileSize) {
+                const rangeEnd = Math.min(offset + chunkSize - 1, fileSize - 1);
+                const range = `bytes=${offset}-${rangeEnd}`;
                 console.log('Fetching video chunk:', range);
-                const chunkRequest = new Request('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', {
+                const chunkRequest = new Request('video.mp4', {
                     method: 'GET',
                     headers: {
                         Range: range
                     }
                 });
 
-                console.log('Request', counter++);
-
-                // Fetch the chunk using the service worker URL
                 const response = await fetch(chunkRequest);
 
-                // Check if the response is successful
                 if (!response.ok) {
-                    // Handle error
                     console.error('Error fetching video chunk:', response.statusText);
                     return;
                 }
 
                 const blob = await response.blob();
-
-                // Create blob URL and set it to the video element
                 const blobUrl = URL.createObjectURL(blob);
-                videoElement.src = blobUrl;
 
-                // Increase offset for the next chunk
-                offset += chunkSize;
-
-                // Break the loop if the entire video has been fetched
-                console.log(offset, 'Content-Length', response.headers.get('Content-Length'), offset >= response.headers.get('Content-Length'));
-                if (offset >= response.headers.get('Content-Length')) {
-                    break;
+                // Append the blob URL to the video element source
+                if (!videoElement.src) {
+                    videoElement.src = blobUrl;
+                } else {
+                    videoElement.src += `,${blobUrl}`;
                 }
+
+                // Update offset for the next chunk
+                offset += chunkSize;
             }
         }
 
+        // Call the function to start fetching video by chunk
         fetchVideoByChunk();
     </script>
 </body>

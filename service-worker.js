@@ -1,6 +1,6 @@
 // Service worker script
 const cacheName = 'video-cache';
-const chunkSize = 2 * 1024 * 1024; // 1 MB chunk size
+const chunkSize = 1 * 1024 * 1024; // 1 MB chunk size
 
 self.addEventListener('install', event => {
     event.waitUntil(
@@ -22,6 +22,7 @@ self.addEventListener('fetch', event => {
 
 // Function to handle byte range requests for MP4 video files with forced range chunks
 async function handleRangeRequests(request) {
+    console.log(`Handling range request for: ${request.url}`);
     const rangeHeader = request.headers.get('range');
     if (!rangeHeader) {
         // If no range header is present, fetch the entire video
@@ -47,7 +48,10 @@ async function handleRangeRequests(request) {
     let bytesRemaining = response.headers.get('content-length');
     let offset = 0;
 
+    console.log('Caching response in chunks', bytesRemaining);
+
     while (bytesRemaining > 0) {
+        console.log('Bytes remaining:', bytesRemaining);
         const chunkSizeToFetch = Math.min(chunkSize, bytesRemaining);
         const end = offset + chunkSizeToFetch - 1;
         const range = `bytes=${offset}-${end}`;

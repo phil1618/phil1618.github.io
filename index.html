@@ -89,6 +89,7 @@
                 offset += chunkSize;
 
                 // Break the loop if the entire video has been fetched
+                console.log(offset, 'Content-Length', response.headers.get('Content-Length'), offset >= response.headers.get('Content-Length'));
                 if (offset >= response.headers.get('Content-Length')) {
                     break;
                 }

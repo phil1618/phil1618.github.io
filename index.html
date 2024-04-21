@@ -115,8 +115,15 @@
                                 return;
                             }
 
+                            // Clone the response and remove the 206 status code
+                            const clonedResponse = new Response(response.body, {
+                                status: response.status === 206 ? 200 : response.status,
+                                statusText: response.statusText,
+                               // headers: response.headers
+                            });
+
                             // Cache the chunk
-                            await cache.put(cacheKey, response.clone());
+                            await cache.put(cacheKey, clonedResponse);
 
                             // Append the chunk to the media source
                             const arrayBuffer = await response.arrayBuffer();

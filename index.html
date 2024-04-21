@@ -84,6 +84,7 @@
                 const cachedResponse = await cache.match(cacheKey);
                 if (cachedResponse) {
                     // If cached, use the cached response
+                    console.log('Using cached chunk:', cacheKey);
                     await appendChunkToMediaSource(cachedResponse);
                 } else {
                     // If not cached, fetch the chunk

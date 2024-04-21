@@ -55,6 +55,7 @@
             const videoElement = document.getElementById('chunked-video');
             const chunkSize = 1024 * 1024; // 1 MB chunk size
             let offset = 0;
+            let counter = 0;
 
             while (true) {
                 const range = `bytes=${offset}-${offset + chunkSize - 1}`;
@@ -65,6 +66,8 @@
                         Range: range
                     }
                 });
+
+                console.log('Request', counter++);
 
                 // Fetch the chunk using the service worker URL
                 const response = await fetch(chunkRequest);

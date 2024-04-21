@@ -12,7 +12,7 @@
     <p id="service-worker-status">Checking service worker availability...</p>
     <p id="cache-status">Checking HTML video caching...</p>
     <p id="cache-size">Cache size: <span id="cache-size-value"></span></p>
-    <video id="chunked-video" controls autoplay="true"></video>
+    <video id="chunked-video" controls ></video>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
@@ -35,6 +35,7 @@
                             cache.keys().then(function (requests) {
                                 let totalSize = 0;
                                 requests.forEach(function (request) {
+                                    console.log(request.headers);
                                     totalSize += request.headers.get('Content-Length') || 0;
                                 });
                                 document.getElementById('cache-size-value').textContent = totalSize + ' bytes';
@@ -44,7 +45,7 @@
                         document.getElementById('cache-status').textContent = 'HTML video caching is not available';
                     }
                 });
-            }, 2000);
+            }, 5000);
 
         } else {
             document.getElementById('cache-status').textContent = 'Caching is not supported';

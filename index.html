@@ -76,11 +76,12 @@
             const videoElement = document.getElementById('video-element');
             videoElement.src = URL.createObjectURL(mediaSource);
 
-            const sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.64001f"'); // Adjust codecs as per your video
+            
 
             const cache = await caches.open(cacheName);
 
             mediaSource.addEventListener('sourceopen', async () => {
+                const sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.64001f"'); // Adjust codecs as per your video
                 while (offset < fileSize) {
                     const rangeEnd = Math.min(offset + chunkSizeBytes - 1, fileSize - 1);
                     const range = `bytes=${offset}-${rangeEnd}`;

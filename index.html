@@ -54,7 +54,7 @@
 
         // Function to fetch video data, cache it, and set it to the video element
         async function fetchCacheAndPlayVideo() {
-            const videoUrl = 'video.mp4'; // Replace with your video file URL
+            const videoUrl = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'; // Replace with your video file URL
             const chunkSizeMB = 5; // Chunk size in megabytes
             const chunkSizeBytes = chunkSizeMB * 1024 * 1024; // Convert MB to bytes
             const cacheName = 'video-cache';
@@ -62,7 +62,7 @@
             // Create a single MediaSource object
             const mediaSource = new MediaSource();
             const videoElement = document.getElementById('video-element');
-            videoElement.src = URL.createObjectURL(mediaSource);
+            
 
             const cache = await caches.open(cacheName);
             const chunkQueue = [];
@@ -100,6 +100,8 @@
                     appendBufferFromQueue();
                 });
             });
+
+            videoElement.src = URL.createObjectURL(mediaSource);
 
             try {
                 const response = await fetch(videoUrl);

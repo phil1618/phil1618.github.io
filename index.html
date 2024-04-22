@@ -50,9 +50,7 @@
         } else {
             document.getElementById('cache-status').textContent = 'Caching is not supported';
         }
-
-
-        // Function to fetch video data, cache it, and set it to the video element
+        // Function to fetch video data by chunk, cache it, and set it to the video element
         async function fetchCacheAndPlayVideo() {
             const videoUrl = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'; // Replace with your video file URL
             const chunkSizeMB = 5; // Chunk size in megabytes
@@ -62,7 +60,7 @@
             // Create a single MediaSource object
             const mediaSource = new MediaSource();
             const videoElement = document.getElementById('video-element');
-            
+            videoElement.src = URL.createObjectURL(mediaSource);
 
             const cache = await caches.open(cacheName);
             const chunkQueue = [];
@@ -101,15 +99,14 @@
                 });
             });
 
-            videoElement.src = URL.createObjectURL(mediaSource);
-
-            try {
-                const response = await fetch(videoUrl);
-
-                if (!response.ok) {
-                    console.error('Error fetching video:', response.statusText);
-                    return;
-                }
+            // Function to download video by chunk
+            async function downloadVideoByChunk(start, end) {
+                const rangeHeader = `bytes=${start}-${end}`;
+                const response = await fetch(videoUrl, {
+                    headers: {
+                        Range: rangeHeader
+                    }
+                });
 
                 let arrayBuffer;
                 if (response.status === 206) {
@@ -124,19 +121,19 @@
                     arrayBuffer = await response.arrayBuffer();
                 }
 
-                // Cache the response
-                await cache.put(videoUrl, new Response(arrayBuffer));
+                return arrayBuffer;
+            }
 
-                // If MediaSource is ready, append the buffer directly
-                if (mediaSource.readyState === 'open') {
-                    const sourceBuffer = mediaSource.sourceBuffers[0];
-                    if (!sourceBuffer.updating) {
-                        sourceBuffer.appendBuffer(arrayBuffer);
-                    } else {
-                        chunkQueue.push(arrayBuffer); // Add buffer to the queue if SourceBuffer is updating
-                    }
-                } else {
-                    chunkQueue.push(arrayBuffer); // Add buffer to the queue if MediaSource is not ready
+            try {
+                const response = await fetch(videoUrl, { method: 'HEAD' });
+                const contentLength = parseInt(response.headers.get('Content-Length'), 10);
+                let offset = 0;
+
+                while (offset < contentLength) {
+                    const chunkEnd = Math.min(offset + chunkSizeBytes - 1, contentLength - 1);
+                    const chunkArrayBuffer = await downloadVideoByChunk(offset, chunkEnd);
+                    chunkQueue.push(chunkArrayBuffer);
+                    offset += chunkSizeBytes;
                 }
             } catch (error) {
                 console.error('Error fetching or appending video:', error);

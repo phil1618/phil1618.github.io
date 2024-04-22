@@ -12,8 +12,7 @@
     <p id="service-worker-status">Checking service worker availability...</p>
     <p id="cache-status">Checking HTML video caching...</p>
     <p id="cache-size">Cache size: <span id="cache-size-value"></span></p>
-    <video id="video-element" autoplay="true"
-    muted="muted" controls></video>
+    <video id="video-element" autoplay="true" muted="muted" controls></video>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
@@ -53,105 +52,95 @@
         }
 
 
-        // Function to fetch video data by chunk, cache it, and set it to the video element
-        async function fetchCacheAndPlayVideoByChunk() {
-            const videoUrl = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'; // Replace with your video file URL
-            const chunkSizeMB = 5; // Chunk size in megabytes
-            const chunkSizeBytes = chunkSizeMB * 1024 * 1024; // Convert MB to bytes
-            const cacheName = 'video-chunks';
-
-            // Fetch the headers of the video file to get the file size
-            const headResponse = await fetch(videoUrl, { method: 'HEAD' });
-            const contentLength = headResponse.headers.get('Content-Length');
-
-            if (!contentLength) {
-                console.error('Content-Length header not found in response');
-                return;
-            }
-
-            const fileSize = parseInt(contentLength, 10);
-            let offset = 0;
+        // Function to fetch video data, cache it, and set it to the video element
+        async function fetchCacheAndPlayVideo() {
+            const videoUrl = 'video.mp4'; // Replace with your video file URL
+            const cacheName = 'video-cache';
 
             // Create a single MediaSource object
             const mediaSource = new MediaSource();
             const videoElement = document.getElementById('video-element');
-            //videoElement.src = URL.createObjectURL(mediaSource);
-
-            
-            //const registration = await navigator.serviceWorker.register('/service-worker.js');
-            const cache = await caches.open(cacheName);
-            console.log('Cache opened');
-            mediaSource.addEventListener('sourceopen', async () => {
-                console.log('Media source opened');
-                videoElement.play();
-                const sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.64001f"'); // Adjust codecs as per your video
-                
-                while (offset < fileSize) {
-                    const rangeEnd = Math.min(offset + chunkSizeBytes - 1, fileSize - 1);
-                    const range = `bytes=${offset}-${rangeEnd}`;
-                    const cacheKey = `${cacheName}-${offset}-${rangeEnd}`;
-
-                    // Check if chunk is already cached
-                    const cachedResponse = await cache.match(cacheKey);
-                    if (cachedResponse) {
-                        // If cached, use the cached response
-                        const arrayBuffer = await cachedResponse.arrayBuffer();
-                        try {
-                            sourceBuffer.appendBuffer(arrayBuffer);
-                        } catch (error) {
-                            console.error('Error appending buffer:', error.message);
-                            return;
-                        }
-                    } else {
-                        // If not cached, fetch the chunk
-                        const chunkRequest = new Request(videoUrl, {
-                            method: 'GET',
-                            headers: {
-                                Range: range
-                            }
-                        });
-
-                        try {
-                            const response = await fetch(chunkRequest);
-                            if (!response.ok) {
-                                console.error('Error fetching video chunk:', response.statusText);
-                                return;
-                            }
-
-                            // Clone the response and remove the 206 status code
-                            const clonedResponse = new Response(response.body, {
-                                status: response.status === 206 ? 200 : response.status,
-                                statusText: response.statusText,
-                               // headers: response.headers
-                            });
-
-                            // Cache the chunk
-                            await cache.put(cacheKey, clonedResponse);
-
-                            // Append the chunk to the media source
-                            const arrayBuffer = await clonedResponse.arrayBuffer();
-                            try {
-                                sourceBuffer.appendBuffer(arrayBuffer);
-                                console.log('Appended chunk:', cacheKey);
-                            } catch (error) {
-                                console.error('Error appending buffer:', error.message);
-                                return;
-                            }
-                        } catch (error) {
-                            console.error('Fetch error:', error.message);
-                            return;
-                        }
-                    }
-
-                    // Update offset for the next chunk
-                    offset += chunkSizeBytes;
-                }
-            });
             videoElement.src = URL.createObjectURL(mediaSource);
+
+            const cache = await caches.open(cacheName);
+
+            // Function to handle appending buffer to the SourceBuffer
+            function appendBufferFromQueue() {
+                if (chunkQueue.length === 0 || mediaSource.readyState !== 'open') {
+                    // Exit if queue is empty or MediaSource is not ready
+                    return;
+                }
+
+                const chunk = chunkQueue.shift(); // Get the first chunk from the queue
+                const sourceBuffer = mediaSource.sourceBuffers[0];
+
+                if (!sourceBuffer.updating) {
+                    // If SourceBuffer is not updating, append the chunk
+                    sourceBuffer.appendBuffer(chunk);
+                } else {
+                    // If SourceBuffer is updating, re-add the chunk to the beginning of the queue
+                    chunkQueue.unshift(chunk);
+                }
+            }
+
+            // Event listener for sourceopen event
+            mediaSource.addEventListener('sourceopen', async () => {
+                // Create a SourceBuffer and add it to the MediaSource
+                const sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.64001f"'); // Adjust codecs as per your video
+
+                // Append buffers from the queue when MediaSource is ready
+                appendBufferFromQueue();
+
+                // Event listener for updateend event on SourceBuffer
+                sourceBuffer.addEventListener('updateend', () => {
+                    // Append buffers from the queue when SourceBuffer update ends
+                    appendBufferFromQueue();
+                });
+            });
+
+            try {
+                const response = await fetch(videoUrl);
+
+                if (!response.ok) {
+                    console.error('Error fetching video:', response.statusText);
+                    return;
+                }
+
+                let arrayBuffer;
+                if (response.status === 206) {
+                    // Clone the response and change the status code to 200
+                    const clonedResponse = new Response(response.body, {
+                        status: 200,
+                        statusText: 'OK',
+                        headers: response.headers
+                    });
+                    arrayBuffer = await clonedResponse.arrayBuffer();
+                } else {
+                    arrayBuffer = await response.arrayBuffer();
+                }
+
+                // Cache the response
+                await cache.put(videoUrl, new Response(arrayBuffer));
+
+                // If MediaSource is ready, append the buffer directly
+                if (mediaSource.readyState === 'open') {
+                    const sourceBuffer = mediaSource.sourceBuffers[0];
+                    if (!sourceBuffer.updating) {
+                        sourceBuffer.appendBuffer(arrayBuffer);
+                    } else {
+                        chunkQueue.push(arrayBuffer); // Add buffer to the queue if SourceBuffer is updating
+                    }
+                } else {
+                    chunkQueue.push(arrayBuffer); // Add buffer to the queue if MediaSource is not ready
+                }
+            } catch (error) {
+                console.error('Error fetching or appending video:', error);
+                return;
+            }
         }
 
-        // Call the function to start fetching, caching, and playing video by chunk
-        fetchCacheAndPlayVideoByChunk();
+        // Call the function to start fetching, caching, and playing video
+        fetchCacheAndPlayVideo();
     </script>
 </body>
 

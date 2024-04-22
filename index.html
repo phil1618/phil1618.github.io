@@ -55,6 +55,8 @@
         // Function to fetch video data, cache it, and set it to the video element
         async function fetchCacheAndPlayVideo() {
             const videoUrl = 'video.mp4'; // Replace with your video file URL
+            const chunkSizeMB = 5; // Chunk size in megabytes
+            const chunkSizeBytes = chunkSizeMB * 1024 * 1024; // Convert MB to bytes
             const cacheName = 'video-cache';
 
             // Create a single MediaSource object
@@ -63,6 +65,7 @@
             videoElement.src = URL.createObjectURL(mediaSource);
 
             const cache = await caches.open(cacheName);
+            const chunkQueue = [];
 
             // Function to handle appending buffer to the SourceBuffer
             function appendBufferFromQueue() {

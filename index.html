@@ -12,9 +12,23 @@
     <!-- <iframe src="https://hq.flowr.media/qbetter/api-cloud/appointments/widget" style="width: 100%; height: 100%;" /> -->
     <p id="service-worker-status">Checking service worker availability...</p>
     <p id="cache-status">Checking HTML video caching...</p>
+    <p id="storage-api-status">Checking Storage API...</p>
     <p id="cache-size">Cache size: <span id="cache-size-value"></span></p>
     <video id="video-element" autoplay="true" muted="muted" controls></video>
     <script>
+        var chunkSizeMB = 2; // Chunk size in megabytes
+        function formatBytes(bytes, decimals = 2) {
+            if (!+bytes) return '0 Bytes';
+
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+            return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
+        }
+
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
                 .then(function (registration) {
@@ -36,10 +50,9 @@
                             cache.keys().then(function (requests) {
                                 let totalSize = 0;
                                 requests.forEach(function (request) {
-                                    console.log(request.name, request.headers.get('Content-Length') || 0);
                                     totalSize += chunkSizeMB * 1024 * 1024;
                                 });
-                                document.getElementById('cache-size-value').textContent = totalSize + ' bytes';
+                                document.getElementById('cache-size-value').textContent = formatBytes(totalSize);
                             });
                         });
                     } else {
@@ -51,16 +64,26 @@
         } else {
             document.getElementById('cache-status').textContent = 'Caching is not supported';
         }
+
+        if ('storage' in navigator && 'estimate' in navigator.storage) {
+            document.getElementById('storage-api-status').textContent = 'Storage API is available';
+            navigator.storage.estimate()
+                .then(function (estimate) {
+                    document.getElementById('storage-api-status').textContent = `Storage API is available: Using ${formatBytes(estimate.usage)} out of ${formatBytes(estimate.quota)}`;
+                });
+        } else {
+            document.getElementById('storage-api-status').textContent = `Storage API is not supported: `;
+        }
+
         // Function to fetch video data by chunk, cache it, and set it to the video element
         async function fetchCacheAndPlayVideo() {
             const videoUrl = 'https://nickdesaulniers.github.io/netfix/demo/frag_bunny.mp4'; // Replace with your video file URL
-            const chunkSizeMB = 2; // Chunk size in megabytes
             const chunkSizeBytes = chunkSizeMB * 1024 * 1024; // Convert MB to bytes
             const cacheName = 'video-cache';
 
             // Create a single MediaSource object
             const mediaSource = new MediaSource();
-           // mediaSource.duration = 55;
+            // mediaSource.duration = 55;
             const videoElement = document.getElementById('video-element');
             videoElement.src = URL.createObjectURL(mediaSource);
 
@@ -75,7 +98,7 @@
 
             mediaSource.addEventListener('sourceended', () => {
                 console.log('MediaSource ended');
-               // mediaSource.endOfStream();
+                // mediaSource.endOfStream();
             });
 
             const cache = await caches.open(cacheName);

@@ -28,7 +28,7 @@ function registerServiceWorker() {
     log("Service Worker API is available");
 
     void navigator.serviceWorker
-      .register("/sw-main.js")
+      .register("/web/sw-main.js")
       .then(function (registered) {
         log("Service Worker registration successful: ", registered);
       })

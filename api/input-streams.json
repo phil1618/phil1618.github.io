@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "STREAM 1 - 32 audios - MCR Stream 1A/1B",
+    "outputNumber": 1,
+    "isDeleted": false,
+    "usedSDIPorts": [1, 2]
+  },
+  {
+    "id": 2,
+    "name": "STREAM 2 - 32 audios - MCR Stream 2A/2B",
+    "outputNumber": 2,
+    "isDeleted": false,
+    "usedSDIPorts": [3, 4]
+  },
+  {"id": 3, "name": "STREAM 3 (16 audios)", "outputNumber": 3, "isDeleted": false, "usedSDIPorts": [5]},
+  {"id": 4, "name": "STREAM 4 (16 audios)", "outputNumber": 4, "isDeleted": false, "usedSDIPorts": [6]},
+  {"id": 5, "name": "STREAM 5 (16 audios)", "outputNumber": 5, "isDeleted": false, "usedSDIPorts": [7]},
+  {"id": 6, "name": "STREAM 6 (16 audios)", "outputNumber": 6, "isDeleted": false, "usedSDIPorts": [8]}
+]

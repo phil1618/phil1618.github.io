@@ -1,0 +1,304 @@
+[
+  {
+    "id": 18,
+    "name": "DEFAULT 24 - PUBLIC SESSION",
+    "description": "Council meetings\n",
+    "sdiCount": 2,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 2},
+      {"sdiPort": 1, "sdiChannel": 5, "languageId": 4},
+      {"sdiPort": 1, "sdiChannel": 8, "languageId": 9},
+      {"sdiPort": 1, "sdiChannel": 15, "languageId": 19},
+      {"sdiPort": 1, "sdiChannel": 16, "languageId": 20},
+      {"sdiPort": 1, "sdiChannel": 9, "languageId": 27},
+      {"sdiPort": 1, "sdiChannel": 7, "languageId": 8},
+      {"sdiPort": 1, "sdiChannel": 10, "languageId": 23},
+      {"sdiPort": 1, "sdiChannel": 11, "languageId": 25},
+      {"sdiPort": 1, "sdiChannel": 12, "languageId": 26},
+      {"sdiPort": 1, "sdiChannel": 13, "languageId": 16},
+      {"sdiPort": 1, "sdiChannel": 14, "languageId": 17},
+      {"sdiPort": 2, "sdiChannel": 1, "languageId": 21},
+      {"sdiPort": 2, "sdiChannel": 2, "languageId": 22},
+      {"sdiPort": 2, "sdiChannel": 3, "languageId": 10},
+      {"sdiPort": 2, "sdiChannel": 4, "languageId": 13},
+      {"sdiPort": 2, "sdiChannel": 5, "languageId": 12},
+      {"sdiPort": 2, "sdiChannel": 6, "languageId": 14},
+      {"sdiPort": 2, "sdiChannel": 7, "languageId": 24},
+      {"sdiPort": 2, "sdiChannel": 8, "languageId": 15},
+      {"sdiPort": 1, "sdiChannel": 6, "languageId": 7}
+    ]
+  },
+  {
+    "id": 3,
+    "name": "ORIGINAL ONLY",
+    "description": "Arrivals\n\n",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [{"sdiPort": 1, "sdiChannel": 1, "languageId": 5}]
+  },
+  {
+    "id": 498,
+    "name": "OR + EN/FR/ES",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 6, "languageId": 27}
+    ]
+  },
+  {
+    "id": 495,
+    "name": "EUCO - STANDARD",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 5, "languageId": 4},
+      {"sdiPort": 1, "sdiChannel": 6, "languageId": 27},
+      {"sdiPort": 1, "sdiChannel": 7, "languageId": 7},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 2}
+    ]
+  },
+  {
+    "id": 512,
+    "name": "HU PRESIDENCY - LUX PRESS ROOM - Standard",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 2},
+      {"sdiPort": 1, "sdiChannel": 5, "languageId": 4},
+      {"sdiPort": 1, "sdiChannel": 6, "languageId": 27},
+      {"sdiPort": 1, "sdiChannel": 8, "languageId": 21}
+    ]
+  },
+  {
+    "id": 513,
+    "name": "HU PRESIDENCY - LUX PRESS ROOM - Agrifish (+PL)",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 2},
+      {"sdiPort": 1, "sdiChannel": 5, "languageId": 4},
+      {"sdiPort": 1, "sdiChannel": 6, "languageId": 27},
+      {"sdiPort": 1, "sdiChannel": 7, "languageId": 10},
+      {"sdiPort": 1, "sdiChannel": 8, "languageId": 21}
+    ]
+  },
+  {
+    "id": 517,
+    "name": "OR+EN/FR/UA",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 59}
+    ]
+  },
+  {
+    "id": 500,
+    "name": "LUX PRESS ROOM - AGRIFISH (+PL)",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 2},
+      {"sdiPort": 1, "sdiChannel": 5, "languageId": 4},
+      {"sdiPort": 1, "sdiChannel": 6, "languageId": 27},
+      {"sdiPort": 1, "sdiChannel": 7, "languageId": 10}
+    ]
+  },
+  {
+    "id": 501,
+    "name": "BXL PRESS ROOM - EUROGROUP",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 2},
+      {"sdiPort": 1, "sdiChannel": 5, "languageId": 4},
+      {"sdiPort": 1, "sdiChannel": 6, "languageId": 27}
+    ]
+  },
+  {
+    "id": 508,
+    "name": "HU PRESIDENCY - BXL PRESS ROOM - Standard presser",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 2},
+      {"sdiPort": 1, "sdiChannel": 5, "languageId": 4},
+      {"sdiPort": 1, "sdiChannel": 6, "languageId": 27},
+      {"sdiPort": 1, "sdiChannel": 7, "languageId": 7},
+      {"sdiPort": 1, "sdiChannel": 8, "languageId": 21}
+    ]
+  },
+  {
+    "id": 509,
+    "name": "HU PRESIDENCY - BXL PRESS ROOM - Agrifish presser (+PL)",
+    "description": "Please note that this config works only in JL press room. In EB press room, only 7 languages possible, therefore no PL possible (in this case the config woiuld be a standard HU presidency one for Brussels).",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 2},
+      {"sdiPort": 1, "sdiChannel": 5, "languageId": 4},
+      {"sdiPort": 1, "sdiChannel": 6, "languageId": 27},
+      {"sdiPort": 1, "sdiChannel": 7, "languageId": 7},
+      {"sdiPort": 1, "sdiChannel": 8, "languageId": 21},
+      {"sdiPort": 1, "sdiChannel": 9, "languageId": 10}
+    ]
+  },
+  {
+    "id": 396,
+    "name": "EN only",
+    "description": "Arrivals\n\n",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [{"sdiPort": 1, "sdiChannel": 1, "languageId": 1}]
+  },
+  {
+    "id": 1,
+    "name": "BXL PRESS ROOM - FAC",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 2},
+      {"sdiPort": 1, "sdiChannel": 5, "languageId": 4},
+      {"sdiPort": 1, "sdiChannel": 6, "languageId": 27},
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 7, "languageId": 7}
+    ]
+  },
+  {
+    "id": 397,
+    "name": "OR + EN",
+    "description": "Arrivals\n\n",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5}
+    ]
+  },
+  {
+    "id": 454,
+    "name": "24+UKRAINIAN",
+    "description": "Council meetings\n",
+    "sdiCount": 2,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 2},
+      {"sdiPort": 1, "sdiChannel": 5, "languageId": 4},
+      {"sdiPort": 1, "sdiChannel": 8, "languageId": 9},
+      {"sdiPort": 1, "sdiChannel": 15, "languageId": 19},
+      {"sdiPort": 1, "sdiChannel": 16, "languageId": 20},
+      {"sdiPort": 1, "sdiChannel": 9, "languageId": 27},
+      {"sdiPort": 1, "sdiChannel": 7, "languageId": 8},
+      {"sdiPort": 1, "sdiChannel": 10, "languageId": 23},
+      {"sdiPort": 1, "sdiChannel": 11, "languageId": 25},
+      {"sdiPort": 1, "sdiChannel": 12, "languageId": 26},
+      {"sdiPort": 1, "sdiChannel": 13, "languageId": 16},
+      {"sdiPort": 1, "sdiChannel": 14, "languageId": 17},
+      {"sdiPort": 2, "sdiChannel": 1, "languageId": 21},
+      {"sdiPort": 2, "sdiChannel": 2, "languageId": 22},
+      {"sdiPort": 2, "sdiChannel": 3, "languageId": 10},
+      {"sdiPort": 2, "sdiChannel": 4, "languageId": 13},
+      {"sdiPort": 2, "sdiChannel": 5, "languageId": 12},
+      {"sdiPort": 2, "sdiChannel": 6, "languageId": 14},
+      {"sdiPort": 2, "sdiChannel": 7, "languageId": 24},
+      {"sdiPort": 2, "sdiChannel": 8, "languageId": 15},
+      {"sdiPort": 1, "sdiChannel": 6, "languageId": 7},
+      {"sdiPort": 2, "sdiChannel": 9, "languageId": 59}
+    ]
+  },
+  {
+    "id": 463,
+    "name": "LUX PRESS ROOM - FAC + EUROGROUP",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 2},
+      {"sdiPort": 1, "sdiChannel": 5, "languageId": 4},
+      {"sdiPort": 1, "sdiChannel": 6, "languageId": 27}
+    ]
+  },
+  {
+    "id": 219,
+    "name": "OR  + EN/FR",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3}
+    ]
+  },
+  {
+    "id": 229,
+    "name": "OR+ EN/FR/DE",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 3, "languageId": 3},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 1},
+      {"sdiPort": 1, "sdiChannel": 4, "languageId": 2}
+    ]
+  },
+  {
+    "id": 260,
+    "name": "OR + FR",
+    "description": "",
+    "sdiCount": 1,
+    "isDeleted": false,
+    "assignments": [
+      {"sdiPort": 1, "sdiChannel": 1, "languageId": 5},
+      {"sdiPort": 1, "sdiChannel": 2, "languageId": 3}
+    ]
+  }
+]

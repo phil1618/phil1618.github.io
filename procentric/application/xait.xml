@@ -1,0 +1,27 @@
+<XAIT>
+    <versionNumber>0504</versionNumber>
+    <AbstractService>
+        <svcName>Pro:Centric Application</svcName>
+        <svcId>0x1204</svcId>
+        <isAutoSelect>true</isAutoSelect>
+        <ApplicationList>
+            <Application>
+                <appName>Application v1</appName>
+                <applicationIdentifier>
+                    <orgId>1</orgId>
+                    <appId>1</appId>
+                </applicationIdentifier>
+                <applicationDescriptor>
+                    <type>Hcap-h</type>
+                    <controlCode>AUTOSTART</controlCode>
+                    <visibility>NOT_VISIBLE_USERS</visibility>
+                    <priority>255</priority>
+                    <version>500</version>
+                </applicationDescriptor>
+                <HcapDescriptor>
+                    <url>https://rc.flowr.cloud/frontend/</url>
+                </HcapDescriptor>
+            </Application>
+        </ApplicationList>
+    </AbstractService>
+</XAIT>

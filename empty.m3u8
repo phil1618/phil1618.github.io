@@ -3,46 +3,46 @@
 ## Created with Unified Streaming Platform (version=1.10.12-18737)
 
 # AUDIO groups
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="hr",NAME="hrvatski",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_hrv=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="hr",NAME="hrvatski",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_hrv=48000.m3u8"
 #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="ia",NAME="original",DEFAULT=YES,AUTOSELECT=YES,CHANNELS="1"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="en",NAME="English",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_eng=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="fr",NAME="français",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_fre=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="de",NAME="Deutsch",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_ger=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="it",NAME="italiano",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_ita=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="nl",NAME="Nederlands",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_dut=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="da",NAME="dansk",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_dan=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="el",NAME="ελληνικά",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_gre=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="es",NAME="español",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_spa=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="pt",NAME="português",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_por=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="fi",NAME="suomi",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_fin=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="sv",NAME="svenska",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_swe=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="cs",NAME="čeština",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_cze=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="et",NAME="eesti",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_est=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="lv",NAME="latviešu",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_lav=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="lt",NAME="lietuvių",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_lit=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="hu",NAME="magyar",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_hun=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="mt",NAME="Malti",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_mlt=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="pl",NAME="polski",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_pol=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="sk",NAME="slovenčina",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_slo=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="sl",NAME="slovenščina",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_slv=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="bg",NAME="български",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_bul=48000.m3u8"
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="ro",NAME="română",AUTOSELECT=YES,CHANNELS="1",URI="NubJCjh06LjHQ5ArmDfq5OyF-audio_rum=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="en",NAME="English",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_eng=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="fr",NAME="français",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_fre=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="de",NAME="Deutsch",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_ger=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="it",NAME="italiano",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_ita=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="nl",NAME="Nederlands",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_dut=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="da",NAME="dansk",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_dan=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="el",NAME="ελληνικά",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_gre=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="es",NAME="español",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_spa=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="pt",NAME="português",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_por=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="fi",NAME="suomi",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_fin=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="sv",NAME="svenska",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_swe=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="cs",NAME="čeština",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_cze=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="et",NAME="eesti",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_est=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="lv",NAME="latviešu",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_lav=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="lt",NAME="lietuvių",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_lit=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="hu",NAME="magyar",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_hun=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="mt",NAME="Malti",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_mlt=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="pl",NAME="polski",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_pol=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="sk",NAME="slovenčina",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_slo=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="sl",NAME="slovenščina",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_slv=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="bg",NAME="български",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_bul=48000.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio-aacl-48",LANGUAGE="ro",NAME="română",AUTOSELECT=YES,CHANNELS="1",URI="https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_rum=48000.m3u8"
 
 # variants
 #EXT-X-STREAM-INF:BANDWIDTH=593000,CODECS="mp4a.40.2,avc1.4D4015",RESOLUTION=512x288,FRAME-RATE=25,AUDIO="audio-aacl-48",CLOSED-CAPTIONS=NONE
-NubJCjh06LjHQ5ArmDfq5OyF-audio_ina=48000-video=511000.m3u8
+https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_ina=48000-video=511000.m3u8
 #EXT-X-STREAM-INF:BANDWIDTH=1132000,CODECS="mp4a.40.2,avc1.4D401E",RESOLUTION=640x360,FRAME-RATE=25,AUDIO="audio-aacl-48",CLOSED-CAPTIONS=NONE
-NubJCjh06LjHQ5ArmDfq5OyF-audio_ina=48000-video=1019000.m3u8
+https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_ina=48000-video=1019000.m3u8
 #EXT-X-STREAM-INF:BANDWIDTH=1738000,CODECS="mp4a.40.2,avc1.4D401E",RESOLUTION=854x480,FRAME-RATE=25,AUDIO="audio-aacl-48",CLOSED-CAPTIONS=NONE
-NubJCjh06LjHQ5ArmDfq5OyF-audio_ina=48000-video=1591000.m3u8
+https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_ina=48000-video=1591000.m3u8
 #EXT-X-STREAM-INF:BANDWIDTH=2787000,CODECS="mp4a.40.2,avc1.4D401F",RESOLUTION=1280x720,FRAME-RATE=25,AUDIO="audio-aacl-48",CLOSED-CAPTIONS=NONE
-NubJCjh06LjHQ5ArmDfq5OyF-audio_ina=48000-video=2581000.m3u8
+https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_ina=48000-video=2581000.m3u8
 #EXT-X-STREAM-INF:BANDWIDTH=5517000,CODECS="mp4a.40.2,avc1.4D4028",RESOLUTION=1920x1080,FRAME-RATE=25,AUDIO="audio-aacl-48",CLOSED-CAPTIONS=NONE
-NubJCjh06LjHQ5ArmDfq5OyF-audio_ina=48000-video=5156000.m3u8
+https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-audio_ina=48000-video=5156000.m3u8
 
 # keyframes
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=68000,CODECS="avc1.4D4015",RESOLUTION=512x288,URI="keyframes/NubJCjh06LjHQ5ArmDfq5OyF-video=511000.m3u8"
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=136000,CODECS="avc1.4D401E",RESOLUTION=640x360,URI="keyframes/NubJCjh06LjHQ5ArmDfq5OyF-video=1019000.m3u8"
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=211000,CODECS="avc1.4D401E",RESOLUTION=854x480,URI="keyframes/NubJCjh06LjHQ5ArmDfq5OyF-video=1591000.m3u8"
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=342000,CODECS="avc1.4D401F",RESOLUTION=1280x720,URI="keyframes/NubJCjh06LjHQ5ArmDfq5OyF-video=2581000.m3u8"
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=684000,CODECS="avc1.4D4028",RESOLUTION=1920x1080,URI="keyframes/NubJCjh06LjHQ5ArmDfq5OyF-video=5156000.m3u8"
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=68000,CODECS="avc1.4D4015",RESOLUTION=512x288,URI="keyframes/https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-video=511000.m3u8"
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=136000,CODECS="avc1.4D401E",RESOLUTION=640x360,URI="keyframes/https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-video=1019000.m3u8"
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=211000,CODECS="avc1.4D401E",RESOLUTION=854x480,URI="keyframes/https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-video=1591000.m3u8"
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=342000,CODECS="avc1.4D401F",RESOLUTION=1280x720,URI="keyframes/https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-video=2581000.m3u8"
+#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=684000,CODECS="avc1.4D4028",RESOLUTION=1920x1080,URI="keyframes/https://gsc-vod.fl.freecaster.net/NubJCjh06LjHQ5ArmDfq5OyF-video=5156000.m3u8"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget>
-	<ver>1.0.0</ver>
+	<ver>1000</ver>
 	<size>43254</size>
 	<widgetname>HLSPlay</widgetname>
 	<webtype>tizen</webtype>
